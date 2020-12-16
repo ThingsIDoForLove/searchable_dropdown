@@ -43,6 +43,9 @@ class DropdownSearch<T> extends StatefulWidget {
 
   ///show/hide clear selected item
   final bool showClearButton;
+    
+  ///show/hide dropDownButton item
+  final bool showDropdownButton;  
 
   ///offline items list
   final List<T> items;
@@ -160,6 +163,7 @@ class DropdownSearch<T> extends StatefulWidget {
     this.popupItemBuilder,
     this.showSearchBox = false,
     this.showClearButton = false,
+    this.showDropdownButton = true,
     this.searchBoxDecoration,
     this.popupBackgroundColor,
     this.enabled = true,
@@ -305,6 +309,7 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
             icon: widget.clearButton ?? const Icon(Icons.clear, size: 24),
             onPressed: () => _handleOnChangeSelectedItem(null),
           ),
+          if (widget.showDropdownButton)
         IconButton(
           icon: widget.dropDownButton ??
               const Icon(Icons.arrow_drop_down, size: 24),
